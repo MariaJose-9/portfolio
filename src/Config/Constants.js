@@ -1,6 +1,9 @@
 // Description: Constants used in the application.
 export const name = "María José Sánchez";
 export const title = "Full-Stack Developer (React Native / Node.js)";
+export const email = "maria.sanchez.c@outlook.com";
+export const phone = "+593984076888";
+export const phone_label = "+593 984 076 888";
 export const github = "https://github.com/MariaJose-9";
 export const linkedin =
   "https://www.linkedin.com/in/mar%C3%ADa-jos%C3%A9-s%C3%A1nchez-cepeda/";

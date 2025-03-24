@@ -1,115 +1,115 @@
-import React, { useRef, useState } from 'react';
-import '../assets/styles/Contact.scss';
+import React, { useRef, useState } from "react";
+import "../assets/styles/Contact.scss";
 // import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
-import { getLabel } from '../Config/Constants';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import {
+  email,
+  getLabel,
+  github,
+  linkedin,
+  phone,
+  phone_label,
+} from "../Config/Constants";
+import {
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import { Email, GitHub, LinkedIn, Phone, WhatsApp } from "@mui/icons-material";
 
 function Contact() {
-
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
-
-  const [lang, setLang] = useState<string>('es');
-
-  const form = useRef();
-
-  const sendEmail = (e: any) => {
-    e.preventDefault();
-
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
-
-    /* Uncomment below if you want to enable the emailJS */
-
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
-
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
-  };
+  const [lang, setLang] = useState<string>("es");
 
   return (
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
-          <h1>{getLabel('contact_title', lang)}</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
-          <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
-          >
-            <div className='form-flex'>
-              <TextField
-                required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
-              />
-            </div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message"
-              placeholder="Send me any inquiries or questions"
-              multiline
-              rows={10}
-              className="body-form"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
-            />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
-            </Button>
-          </Box>
+          <h1>{getLabel("contact_title", lang)}</h1>
+          <p>
+            Gracias por tu interés en ponerte en contacto conmigo. Estaré
+            encantada de responder tus preguntas, recibir tus comentarios o
+            simplemente conectar. Puedes comunicarte directamente por correo,
+            teléfono o WhatsApp. También podemos conectar profesionalmente a
+            través de LinkedIn y GitHub.
+          </p>
+          <List>
+            <ListItem>
+              <ListItemIcon sx={{ color: "white", fontSize: 28 }}>
+                <Email />
+              </ListItemIcon>
+              <ListItemText>
+                <Link href={`mailto:${email}`} color="white" underline="hover">
+                  {email}
+                </Link>
+              </ListItemText>
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ color: "white", fontSize: 28 }}>
+                <Phone />
+              </ListItemIcon>
+              <ListItemText>
+                <Link href={`tel:${phone}`} color="white" underline="hover">
+                  {phone_label}
+                </Link>
+              </ListItemText>
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ color: "white", fontSize: 28 }}>
+                <WhatsApp />
+              </ListItemIcon>
+              <ListItemText>
+                <Link
+                  href={`https://wa.me/${phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="white"
+                  underline="hover"
+                >
+                  Enviar mensaje por WhatsApp
+                </Link>
+              </ListItemText>
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ color: "white", fontSize: 28 }}>
+                <LinkedIn />
+              </ListItemIcon>
+              <ListItemText>
+                <Link
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="white"
+                  underline="hover"
+                >
+                  LinkedIn
+                </Link>
+              </ListItemText>
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ color: "white", fontSize: 28 }}>
+                <GitHub />
+              </ListItemIcon>
+              <ListItemText>
+                <Link
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="white"
+                  underline="hover"
+                >
+                  GitHub
+                </Link>
+              </ListItemText>
+            </ListItem>
+          </List>
         </div>
       </div>
     </div>

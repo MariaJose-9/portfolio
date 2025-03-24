@@ -36,7 +36,7 @@ function App() {
             <Project/>
             <Contact/>
         </FadeIn>
-        <Footer />
+        {/* <Footer /> */}
     </div>
     );
 }
