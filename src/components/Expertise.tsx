@@ -9,6 +9,7 @@ import {
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Chip from "@mui/material/Chip";
 import "../assets/styles/Expertise.scss";
+import { getLabel } from "../Config/Constants";
 
 const labelsFirst = [
   "React Native",
@@ -38,10 +39,11 @@ const labelsThird = [
 ];
 
 function Expertise() {
+  const [lang, setLang] = React.useState<string>("es");
   return (
     <div className="container" id="expertise">
       <div className="skills-container">
-        <h1>Expertise</h1>
+        <h1>{getLabel("expertise_title", lang)}</h1>
         <div className="skills-grid">
           <div className="skill">
             <FontAwesomeIcon icon={faReact as IconProp} size="3x" />

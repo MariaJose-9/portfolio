@@ -44,7 +44,10 @@ export const labels = {
     },
   },
   es: {
+    expertise_title: "Experiencia",
     timeline_title: "Trayectoria profesional",
+    projects_title: "Proyectos",
+    contact_title: "Contáctame",
   },
 };
 
