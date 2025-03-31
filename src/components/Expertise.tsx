@@ -19,6 +19,7 @@ const labelsFirst = [
   "SASS",
   "NodeJs",
   "Laravel",
+  "React",
   "MySQL",
   "Firebase",
   "Postman",
@@ -47,10 +48,10 @@ function Expertise() {
         <div className="skills-grid">
           <div className="skill">
             <FontAwesomeIcon icon={faReact as IconProp} size="3x" />
-            <h3>Full Stack Mobile & Backend Development</h3>
+            <h3>Full Stack Front & Backend Development</h3>
             <p>
               He construido una variedad de aplicaciones móviles y backend desde
-              cero utilizando tecnologías modernas como React Native, Node.js y
+              cero utilizando tecnologías modernas como React Native, Node.js, React y
               Laravel. Tengo una fuerte competencia en el proceso SDLC y en el
               desarrollo tanto móvil como backend.
             </p>
